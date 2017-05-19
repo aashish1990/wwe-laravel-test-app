@@ -6,6 +6,7 @@
 
 <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
+        <h2>Add Video</h2>
         @if($errors->any())
         <div class="alert alert-danger">
             {{$errors->first()}}

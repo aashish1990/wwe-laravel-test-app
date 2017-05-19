@@ -1,9 +1,14 @@
 @extends('app')
 
-@section('title', 'Add Video')
+@section('title', 'Metadata')
 
 @section('content')
 
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Metadata</h1>        
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-4 col-lg-offset-1">
         <h2>Keywords</h2>

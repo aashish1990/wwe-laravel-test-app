@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Add Video')
+@section('title', 'Videos list')
 
 @section('content')
 
