@@ -26,3 +26,9 @@ Route::get('/metadata/locations/add', 'MetadataController@addLocation')->name('a
 Route::post('/metadata/locations/save', 'MetadataController@saveLocation')->name('saveLocation');
 
 Route::get('/metadata', 'MetadataController@listAll')->name('listMetadata');
+
+Route::post('/videos/{videoId}/keywords/{keywordId}/add', 'VideosController@assignKeyword')->name('assignKeyword');
+Route::post('/videos/{videoId}/keywords/{keywordId}/remove', 'VideosController@unAssignKeyword')->name('unAssignKeyword');
+
+Route::post('/videos/{videoId}/locations/{locationId}/assign', 'VideosController@assignLocation')->name('assignLocation');
+Route::post('/videos/{videoId}/location/remove', 'VideosController@removeLocation')->name('removeLocation');
