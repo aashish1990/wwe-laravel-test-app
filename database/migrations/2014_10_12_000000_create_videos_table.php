@@ -17,6 +17,7 @@ class CreateVideosTable extends Migration {
             $table->string('title');
             $table->string('filename');
             $table->string('url');
+            $table->boolean('is_liked')->nullable();
             $table->integer('location_id')->unsigned()->nullable();
             $table->timestamps();
         });

@@ -20,8 +20,15 @@
                     <a class="navbar-brand" href="/videos">WWE</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="/videos">Videos</a></li>
-                    <li><a href="/videos/add">Add video</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Videos
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/videos">List All</a></li>
+                            <li><a href="/videos/add">Add Video</a></li>
+                            <li><a href="/videos/liked">Liked Videos</a></li>
+                        </ul>
+                    </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/metadata">Metadata
                             <span class="caret"></span></a>

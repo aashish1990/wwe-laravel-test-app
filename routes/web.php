@@ -32,3 +32,8 @@ Route::post('/videos/{videoId}/keywords/{keywordId}/remove', 'VideosController@u
 
 Route::post('/videos/{videoId}/locations/{locationId}/assign', 'VideosController@assignLocation')->name('assignLocation');
 Route::post('/videos/{videoId}/location/remove', 'VideosController@removeLocation')->name('removeLocation');
+
+Route::post('/videos/{videoId}/like', 'VideosController@like')->name('like');
+Route::post('/videos/{videoId}/dislike', 'VideosController@dislike')->name('dislike');
+
+Route::get('/videos/liked', 'VideosController@likedVideos')->name('likedVideos');

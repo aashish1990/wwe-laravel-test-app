@@ -11,6 +11,7 @@
             <table class="table table-bordered">
                 <thead>
                 <th>Title</th>
+                <th>Like</th>
                 <th>Video</th>
                 <th>Duration</th>
                 <th>File Size</th>
@@ -23,6 +24,43 @@
                     @foreach ($videos as $video)
                     <tr>
                         <td>{{$video->title}}</td>
+                        <td>
+                            @if($video->is_liked==1)
+                            <div id="liked{{$video->id}}">
+                                <i class="fa fa-thumbs-up fa-2x"></i>
+                                <br>
+                                <button class="btn btn-primary"
+                                        onclick="dislike({{$video->id}})">
+                                    Dislike
+                                </button>
+                            </div>
+                            <div id="like{{$video->id}}" style="display: none">
+                                <i class="fa fa-thumbs-o-up fa-2x"></i>
+                                <br>
+                                <button class="btn btn-primary"
+                                        onclick="like({{$video->id}})">
+                                    Like
+                                </button>
+                            </div>
+                            @else
+                            <div id="liked{{$video->id}}" style="display: none">
+                                <i class="fa fa-thumbs-up fa-2x"></i>
+                                <br>
+                                <button class="btn btn-primary"
+                                        onclick="dislike({{$video->id}})">
+                                    Dislike
+                                </button>
+                            </div>
+                            <div id="like{{$video->id}}">
+                                <i class="fa fa-thumbs-o-up fa-2x"></i>
+                                <br>
+                                <button class="btn btn-primary"
+                                        onclick="like({{$video->id}})">
+                                    Like
+                                </button>
+                            </div>
+                            @endif
+                        </td>
                         <td>
                             <video width="200"
                                    controls>
@@ -99,8 +137,34 @@
 </div>
 <script>
 
-    function addKeyword(videoId) {
+    function like(videoId){
+    var _token = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+    url: "/videos/" + videoId + "/like",
+            type:"POST",
+            data: { _token : _token },
+            success: function (result) {
+            $("#like" + videoId).css("display", "none");
+            $("#liked" + videoId).css("display", "block");
+            }
+    });
+    }
 
+    function dislike(videoId){
+    var _token = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+    url: "/videos/" + videoId + "/dislike",
+            type:"POST",
+            data: { _token : _token },
+            success: function (result) {
+            $("#like" + videoId).css("display", "block");
+            $("#liked" + videoId).css("display", "none");
+            }
+    });
+    }
+
+
+    function addKeyword(videoId) {
     var e = document.getElementById("keywords" + videoId);
     var _token = $('meta[name="csrf-token"]').attr('content');
     keywordId = e.options[e.selectedIndex].value;

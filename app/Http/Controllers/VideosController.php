@@ -118,4 +118,36 @@ class VideosController extends Controller {
         }
     }
 
+    public function like($videoId) {
+        try {
+            $video = Video::findOrFail($videoId);
+            $video->is_liked = true;
+            $video->save();
+            return response(null, 200);
+        } catch (ModelNotFoundException $ex) {
+            return response(null, 404);
+        }
+    }
+
+    public function dislike($videoId) {
+        try {
+            $video = Video::findOrFail($videoId);
+            $video->is_liked = false;
+            $video->save();
+            return response(null, 200);
+        } catch (ModelNotFoundException $ex) {
+            return response(null, 404);
+        }
+    }
+
+    public function likedVideos() {
+
+        $videos = Video::where('is_liked', true)
+                ->get();
+
+        return view('videos/likedList')->with([
+                    'videos' => $videos
+        ]);
+    }
+
 }
