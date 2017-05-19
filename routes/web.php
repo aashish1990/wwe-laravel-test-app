@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/videos/add', 'VideosController@add')->name('addVideo');
 Route::post('/videos/save', 'VideosController@save')->name('saveVideo');
+Route::get('/videos', 'VideosController@all')->name('listVideo');

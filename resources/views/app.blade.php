@@ -11,6 +11,17 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/videos">WWE</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/videos">Videos</a></li>
+                    <li><a href="/videos/add">Add video</a></li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             @yield('content')
         </div>

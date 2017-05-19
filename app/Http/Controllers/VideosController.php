@@ -14,17 +14,24 @@ use function view;
 
 class VideosController extends Controller {
 
+    public function all() {
+
+        $videos = Video::all();
+        return view('videos/list')->with('videos', $videos);
+    }
+
     public function add() {
         return view('videos/add');
     }
 
     public function save(Request $request) {
+        $this->validate($request, [
+            'title' => 'required|unique:videos',
+            'fileToUpload' => 'required'
+        ]);
         if ($request->hasFile('fileToUpload')) {
             $file = $request->file('fileToUpload');
             if ($file->getMimeType() == "video/mp4") {
-                $this->validate($request, [
-                    'title' => 'required|unique:videos',
-                ]);
 
                 $randName = Hash::make(Carbon::now()->timestamp);
                 $file->move(public_path() . '/uploads/', $randName);
