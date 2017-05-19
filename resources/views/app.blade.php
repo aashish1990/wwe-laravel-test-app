@@ -19,6 +19,15 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/videos">Videos</a></li>
                     <li><a href="/videos/add">Add video</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/metadata">Metadata
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/metadata">List All</a></li>
+                            <li><a href="/metadata/keywords/add">Add Keywords</a></li>
+                            <li><a href="/metadata/locations/add">Add Locations</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>

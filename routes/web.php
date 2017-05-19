@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::get('/videos/add', 'VideosController@add')->name('addVideo');
 Route::post('/videos/save', 'VideosController@save')->name('saveVideo');
 Route::get('/videos', 'VideosController@all')->name('listVideo');
+
+Route::get('/metadata/keywords/add', 'MetadataController@addKeyword')->name('addKeyword');
+Route::post('/metadata/keywords/save', 'MetadataController@saveKeyword')->name('saveKeyword');
+
+Route::get('/metadata/locations/add', 'MetadataController@addLocation')->name('addLocation');
+Route::post('/metadata/locations/save', 'MetadataController@saveLocation')->name('saveLocation');
+
+Route::get('/metadata', 'MetadataController@listAll')->name('listMetadata');
